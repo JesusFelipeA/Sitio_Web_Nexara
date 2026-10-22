@@ -47,26 +47,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { passive: true });
   }
 
-  /* ---------- Toast de contacto (opcional) ---------- */
-  const contact = document.getElementById("contactButton");
-  const toast = document.getElementById("toast");
-
-  if (contact && toast) {
-    contact.addEventListener("click", (event) => {
-      event.preventDefault();
-      toast.textContent =
-        "¡Gracias por tu interés! Configura aquí el correo oficial de NEXARA para recibir mensajes.";
-      toast.classList.add("show");
-      window.setTimeout(() => toast.classList.remove("show"), 4200);
-    });
-  }
-
   /* ---------- Fade-in de secciones ---------- */
   const sections = document.querySelectorAll(
     ".section, .security-band, .cta, .marquee"
   );
 
-  if ("IntersectionObserver" in window && sections.length) {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (!reduceMotion && "IntersectionObserver" in window && sections.length) {
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -87,5 +75,30 @@ document.addEventListener("DOMContentLoaded", () => {
         "opacity 0.7s cubic-bezier(0.22,0.61,0.36,1), transform 0.7s cubic-bezier(0.22,0.61,0.36,1)";
       io.observe(s);
     });
+  }
+
+  /* ---------- Enlace activo del menú según la sección visible ---------- */
+  const navAnchors = navLinks ? [...navLinks.querySelectorAll('a[href^="#"]')] : [];
+  const targets = navAnchors
+    .map((a) => document.querySelector(a.getAttribute("href")))
+    .filter(Boolean);
+
+  if ("IntersectionObserver" in window && targets.length) {
+    const spy = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const id = "#" + entry.target.id;
+          navAnchors.forEach((a) => {
+            const active = a.getAttribute("href") === id;
+            a.classList.toggle("is-active", active);
+            if (active) a.setAttribute("aria-current", "true");
+            else a.removeAttribute("aria-current");
+          });
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px" }
+    );
+    targets.forEach((t) => spy.observe(t));
   }
 });

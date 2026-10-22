@@ -16,6 +16,7 @@
     <meta name="keywords" content="NEXARA, desarrollo de software, aplicaciones web, aplicaciones móviles, startup tecnológica, HealthNexus, FontTrack, WearTask" />
 
     <title>NEXARA — Tecnología construida con criterio</title>
+    <link rel="canonical" href="https://nexara.dev/" />
 
     <!-- ================= Favicon / Iconos ================= -->
     <link rel="icon" type="image/jpeg" href="img/logo.jpeg" />
@@ -25,7 +26,7 @@
 
     <!-- ================= Open Graph (WhatsApp, Facebook, LinkedIn) ================= -->
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="es_ES" />
+    <meta property="og:locale" content="es_MX" />
     <meta property="og:site_name" content="NEXARA" />
     <meta property="og:title" content="NEXARA — Tecnología construida con criterio" />
     <meta
@@ -33,19 +34,19 @@
       content="Startup de desarrollo tecnológico. Diseñamos y construimos soluciones digitales para problemas reales."
     />
     <meta property="og:url" content="https://nexara.dev/" />
-    <meta property="og:image" content="img/logo.jpeg" />
+    <meta property="og:image" content="https://nexara.dev/img/logo.jpeg" />
     <meta property="og:image:alt" content="Logotipo de NEXARA" />
     <meta property="og:image:width" content="512" />
     <meta property="og:image:height" content="512" />
 
     <!-- ================= Twitter / X ================= -->
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="NEXARA — Tecnología construida con criterio" />
     <meta
       name="twitter:description"
       content="Startup de desarrollo tecnológico. Diseñamos y construimos soluciones digitales para problemas reales."
     />
-    <meta name="twitter:image" content="img/logo.jpeg" />
+    <meta name="twitter:image" content="https://nexara.dev/img/logo.jpeg" />
     <meta name="twitter:image:alt" content="Logotipo de NEXARA" />
 
     <!-- ================= Tipografía premium ================= -->
@@ -55,6 +56,20 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
+
+    <!-- ================= Datos estructurados ================= -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "NEXARA",
+        "url": "https://nexara.dev/",
+        "logo": "https://nexara.dev/img/logo.jpeg",
+        "description": "Startup de desarrollo tecnológico. Diseñamos y construimos soluciones digitales para problemas reales.",
+        "email": "al222310418@gmail.com",
+        "areaServed": "MX"
+      }
+    </script>
 
     <!-- ================= Estilos ================= -->
     <link rel="stylesheet" href="style.css" />
@@ -189,7 +204,7 @@
                     <div class="panel">
                       <div class="panel-head">
                         Portafolio
-                        <small>2025</small>
+                        <small>2026</small>
                       </div>
 
                       <div class="access-row">
@@ -308,21 +323,77 @@
             </p>
           </div>
 
+          <!-- Caso destacado -->
+          <article class="case" aria-labelledby="case-title">
+            <div class="case-copy">
+              <span class="case-label">Caso destacado · 01</span>
+              <h3 id="case-title">HealthNexus</h3>
+              <p>
+                Ecosistema hospitalario de tres piezas: panel web, API REST y
+                app Android. Incluye módulos de pacientes, expediente
+                clínico, agenda, farmacia, camas y alertas. Cada rol (administración,
+                medicina, enfermería y farmacia) ve solo lo que
+                necesita.
+              </p>
+
+              <ul class="case-points">
+                <li><span aria-hidden="true">→</span> Dashboards por rol con indicadores críticos</li>
+                <li><span aria-hidden="true">→</span> Acceso con contraseña y verificación por PIN</li>
+                <li><span aria-hidden="true">→</span> App móvil con triage, emergencias y hospitales cercanos</li>
+                <li><span aria-hidden="true">→</span> API y app contenedorizadas con Docker</li>
+              </ul>
+
+              <div class="case-stack" aria-label="Tecnologías">
+                <span>Laravel</span><span>Node.js</span><span>Express</span><span>React Native</span><span>MySQL</span><span>Docker</span><span>AWS</span>
+              </div>
+
+              <div class="case-repos" aria-label="Repositorios de HealthNexus">
+                <a href="https://github.com/AxelJeronimo2912/HealthNexus" target="_blank" rel="noopener noreferrer">
+                  <span class="case-repo-kind">Web</span>
+                  <span class="case-repo-name">Panel administrativo <small>Laravel · Tailwind</small></span>
+                  <span class="case-repo-arrow" aria-hidden="true">↗</span>
+                </a>
+                <a href="https://github.com/JesusFelipeA/healthnexus-api-docker" target="_blank" rel="noopener noreferrer">
+                  <span class="case-repo-kind">API</span>
+                  <span class="case-repo-name">API REST <small>Node.js · Express · MySQL · Docker</small></span>
+                  <span class="case-repo-arrow" aria-hidden="true">↗</span>
+                </a>
+                <a href="https://github.com/JesusFelipeA/healthnexus-mobile-docker" target="_blank" rel="noopener noreferrer">
+                  <span class="case-repo-kind">Mobile</span>
+                  <span class="case-repo-name">App Android <small>React Native CLI · Docker</small></span>
+                  <span class="case-repo-arrow" aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+
+            <figure class="case-shot">
+              <div class="case-browser" aria-hidden="true">
+                <span></span><span></span><span></span>
+                <em>healthnexus / dashboard</em>
+              </div>
+              <picture>
+                <source srcset="img/healthnexus-dashboard.webp" type="image/webp" />
+                <img src="img/healthnexus-dashboard.jpg" width="1440" height="900" loading="lazy" decoding="async"
+                  alt="Dashboard de administración de HealthNexus con indicadores de alertas, stock, camas y auditoría" />
+              </picture>
+            </figure>
+          </article>
+
           <div class="portfolio-list">
             <a
               class="portfolio-item"
-              href="https://github.com/kmedinaa26-ship-it/NexusHealth"
+              href="https://github.com/AxelJeronimo2912/HealthNexus"
               target="_blank"
               rel="noopener noreferrer"
             >
               <span class="portfolio-num">01</span>
               <div class="portfolio-body">
                 <h3>HealthNexus</h3>
-                <p>Plataforma de gestión hospitalaria y control de acceso a información médica.</p>
+                <p>Gestión hospitalaria en web, API y app Android: expedientes, agenda, farmacia y alertas clínicas con acceso por rol.</p>
               </div>
               <div class="portfolio-tags">
                 <span class="pill">Salud</span>
-                <span class="pill blue">Seguridad</span>
+                <span class="pill blue">Web · API · Mobile</span>
               </div>
               <span class="portfolio-arrow" aria-hidden="true">↗</span>
             </a>
@@ -519,9 +590,8 @@
     target="_blank"
     rel="noopener noreferrer"
   >
-    Escribir por WhatsApp ↗
-  </a>
-</div>
+              Escribir por WhatsApp ↗
+            </a>
             </div>
           </div>
         </section>
@@ -540,7 +610,7 @@
   </span>
 </a>
 
-          <p>© <span id="year">2025</span> NEXARA · Desarrollo tecnológico.</p>
+          <p>© <span id="year">2026</span> NEXARA · Desarrollo tecnológico.</p>
 
           <div class="footer-links">
             <a href="#solucion">Qué hacemos</a>
